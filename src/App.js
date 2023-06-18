@@ -29,7 +29,7 @@ export default function App() {
 <Route  exact path='/login' element={<Login/>}/>
 <Route  exact path='/signup' element={<RegistrationForm/>}/>
 
-{user && <Route  exact path='/' element={<Navigate replace to="/home"/>}/>}
+
 
 {!user && <Route  exact path='/' element={<First/>}/>}
 {user && <Route  path='/cartlist' element={<CartList/>}/>}
