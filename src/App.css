@@ -1,0 +1,59 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  }
+
+.col-card {
+  
+    transition: transform .2s;
+  }
+  
+  .col-card:hover {
+    transform: scale(1.1); 
+    
+  box-shadow: 5px 10px #888888; 
+  border: 1px solid;
+
+
+ 
+  }
+/*https://c4.wallpaperflare.com/wallpaper/371/108/963/white-line-blue-yellow-wallpaper-preview.jpg*/
+  /*https://c0.wallpaperflare.com/preview/194/171/797/color-abstract-background-crop-thumbnail.jpg*/
+  .shop-cart-main{
+    background-image: url('https://c0.wallpaperflare.com/preview/194/171/797/color-abstract-background-crop-thumbnail.jpg');
+	background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+  overflow: hidden;
+
+}
+
+#main-head{
+  color:coral;
+  text-shadow: 2px 2px #FF0000;
+}
+
+.checkout{
+  background-image: url('https://pbs.twimg.com/media/D89Oyr1WwAA45Lp.jpg:large');
+	background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+  opacity: 0.8;
+  height:1000px;
+}
+
+label{
+  font-weight: bolder;
+}
+
+.regis{
+
+  background-image: url('https://img.freepik.com/free-vector/realistic-style-technology-particle-background_23-2148426704.jpg');
+	background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+  overflow: hidden;
+  height:100vh;
+
+}
