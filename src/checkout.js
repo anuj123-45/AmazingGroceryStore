@@ -20,7 +20,7 @@ export default function FormValidation() {
     localStorage.setItem("Customer Details", JSON.stringify(a));
     const { firstName, lastName, email, phone, address } = data;
     console.log(firstName, lastName, email, phone, address);
-    fetch("http://localhost:5000/ecommerce/checkout", {
+    fetch("https://grocerybackendupdated.onrender.com/ecommerce/checkout", {
       method: "POST",
       crossDomain: true,
       headers: {

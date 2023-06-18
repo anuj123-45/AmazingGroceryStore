@@ -54,7 +54,7 @@ const RegistrationForm = () => {
    
       
       try{
-        await axios.post(`http://localhost:5000/ecommerce/register`, {
+        await axios.post(`https://grocerybackendupdated.onrender.com/ecommerce/register`, {
           name: formData.name,
           password: formData.password,
           username: formData.username,
