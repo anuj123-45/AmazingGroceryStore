@@ -13,7 +13,9 @@ import Notfound from './Notfound';
 
 export default function App() {
   const user=localStorage.getItem("token");
-  const count = parseInt(localStorage.getItem("count"));
+  const count = localStorage.getItem("count");
+  const price=localStorage.getItem("TotalCost");
+  console.log(price);
   return (
 
 <BrowserRouter>
@@ -28,13 +30,14 @@ export default function App() {
 <Route  exact path='/signup' element={<RegistrationForm/>}/>
 
 {user && <Route  exact path='/' element={<Navigate replace to="/home"/>}/>}
+
 {!user && <Route  exact path='/' element={<First/>}/>}
 {user && <Route  path='/cartlist' element={<CartList/>}/>}
-{user && count>0 && <Route  path='/checkout' element={<FormValidation/>}/>}
 
+{user  && <Route  exact path='/checkout' element={<FormValidation/>}/>}
 
 <Route path="/home" element={<Notfound/>}/>
-<Route path="/checkout" element={<Notfound/>}/>
+{!user && <Route path="/checkout" element={<Notfound/>}/>}
 
 </Routes>
     </BrowserRouter>

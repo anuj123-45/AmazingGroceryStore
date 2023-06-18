@@ -20,7 +20,7 @@ export default function FormValidation() {
     localStorage.setItem("Customer Details", JSON.stringify(a));
     const { firstName, lastName, email, phone, address } = data;
     console.log(firstName, lastName, email, phone, address);
-    fetch("https://anuj-amazing-supermarket-server.onrender.com/register", {
+    fetch("http://localhost:5000/ecommerce/checkout", {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -37,40 +37,40 @@ export default function FormValidation() {
         purchased_items: localStorage.getItem("names"),
         totalCost: localStorage.getItem("TotalCost"),
       }),
-    }) .then((res) => {
-        if (res.status === 200) {
-          alert("Data Saved");
-          var options = {
-            key: "rzp_test_Gx2PIk72JFokkA",
-            key_secret: "b94Ld1yRMPySxvASs4IwMCDV",
-            amount: localStorage.getItem("TotalCost") * 100,
-            currency: "INR",
-            name: "STARTUP_PROJECTS",
-            description: "for testing purpose",
-          
-            handler: function () {
-              alert("Payment Successfull");
-              alert("Visit Again");
-              navigate("/home");
-            },
-            prefill: {
-              name: firstName + " " + lastName,
-              email: "ak@gmail.com",
-              contact: data.phone,
-            },
-            notes: {
-              address: "Razorpay Corporate Office",
-            },
-            theme: {
-              color: "#3399cc",
-            },
-          };
-          var pay = new window.Razorpay(options);
-          pay.open();
-        } else if (res.status === 409) {
-          alert("Email already exists");
-        }
-      })
+    }).then((res) => {
+      if (res.status === 200) {
+        alert("Data Saved");
+        var options = {
+          key: "rzp_test_Gx2PIk72JFokkA",
+          key_secret: "b94Ld1yRMPySxvASs4IwMCDV",
+          amount: localStorage.getItem("TotalCost") * 100,
+          currency: "INR",
+          name: "STARTUP_PROJECTS",
+          description: "for testing purpose",
+
+          handler: function () {
+            alert("Payment Successfull");
+            alert("Visit Again");
+            navigate("/home");
+          },
+          prefill: {
+            name: firstName + " " + lastName,
+            email: "ak@gmail.com",
+            contact: data.phone,
+          },
+          notes: {
+            address: "Razorpay Corporate Office",
+          },
+          theme: {
+            color: "#3399cc",
+          },
+        };
+        var pay = new window.Razorpay(options);
+        pay.open();
+      } else if (res.status === 409) {
+        alert("Email already exists");
+      }
+    })
       .then((d) => {
         //alert(d.message)
         console.log(d);
@@ -80,19 +80,19 @@ export default function FormValidation() {
     <>
 
       <div className="checkout">
-        <table border="3" style={{boxShadow:'5px 10px 8px 10px white'}}>
+        <table border="3" style={{ boxShadow: '5px 10px 8px 10px white' }}>
           <tr>
             <td>
-            <h1
-          style={{ textAlign: "left", fontWeight: "bolder", color: "black" }}
-          id="f"
-        >
-         <u> Checkout</u>
-        </h1>
-        <h1 style={{ textAlign: "left", fontWeight: "bolder", color: "black" }}>
-          <i>Total Cost </i> :<span style={{color:'darkgreen'}}> Rs {localStorage.getItem("count")>0 ? (<>{localStorage.getItem("TotalCost")}</>):(<>0</>)}</span>
-        </h1>
-     
+              <h1
+                style={{ textAlign: "left", fontWeight: "bolder", color: "black" }}
+                id="f"
+              >
+                <u> Checkout</u>
+              </h1>
+              <h1 style={{ textAlign: "left", fontWeight: "bold", color: "black" }}>
+                <i>Total Cost </i> :<span style={{ color: 'darkgreen' }}> Rs {localStorage.getItem("count") > 0 ? (<>{localStorage.getItem("TotalCost")}</>) : (<>0</>)}</span>
+              </h1>
+
             </td>
           </tr>
         </table>
@@ -101,12 +101,12 @@ export default function FormValidation() {
             style={{
               border: "2px solid black",
               textAlign: "center",
-            width:"350px",
-            
-              margin:"auto",
+              width: "350px",
+
+              margin: "auto",
               marginTop: "40px",
-              boxShadow:' 5px 10px 8px 10px yellow',
-              
+              boxShadow: ' 5px 10px 8px 10px yellow',
+
             }}
           >
             <h1 style={{ color: "black", fontWeight: "bolder" }}>
@@ -141,7 +141,7 @@ export default function FormValidation() {
               )}
               <Form.Field>
                 <label>Email</label>
-                &ensp; &ensp; &ensp;
+               
                 <input
                   placeholder="Email"
                   type="email"
@@ -157,17 +157,15 @@ export default function FormValidation() {
                   Please check the Email
                 </p>
               )}
+
+
               <Form.Field>
                 <label>Phone no</label>
-                &ensp; &ensp; &ensp;
                 <input
                   placeholder="Phone"
                   type="tel"
-                  {...register("phone", {
-                    required: true,
-                    pattern: /[0-9]{10}/,
-                    maxLength: 10,
-                  })}
+                  style={{padding:"5px 28px",textAlign:"left"}}
+                  {...register("phone", { required: true, pattern: /[0-9]{10}/, maxLength: 10 })}
                 />
               </Form.Field>
               {errors.phone && (
@@ -175,16 +173,19 @@ export default function FormValidation() {
                   Please correct the phone number (up to 10 digits)
                 </p>
               )}
+
+
+
               <Form.Field>
                 <label>Address</label>
-                &ensp; &ensp; &ensp;
+              
                 <textarea
                   placeholder="Address"
                   {...register("address", {
                     required: true,
                   })}
                   rows={4}
-                  cols={22}
+                  cols={27}
                 />
               </Form.Field>
               {errors.address && (
@@ -197,7 +198,7 @@ export default function FormValidation() {
             </Form>
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </>
   );

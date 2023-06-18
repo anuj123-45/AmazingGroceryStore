@@ -44,7 +44,7 @@ const First=()=>{
                 </Link>
               </button>
              
-              <button type="button" className="btn btn-warning ">
+              <button type="button" className="btn btn-secondary ">
                 <Link className="text-decoration-none text-dark"  to="/signup" onChange={()=>setColor("aqua")}>
                   Signup
                 </Link>

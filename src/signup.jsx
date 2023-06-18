@@ -101,7 +101,7 @@ const RegistrationForm = () => {
   return (
     <div className='regis'>
       <div className="registration-form">
-      <h2>Registration Form</h2>
+      <h2 style={{color:"white"}}>Register</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
@@ -157,7 +157,7 @@ const RegistrationForm = () => {
 
        
 
-        <button type="submit">Register</button>
+        <button type="submit" style={{backgroundColor:"yellow",color:"black"}}>Register</button>
 
         <Link to="/login" style={{ margin: "5px",color:"orange" }}><b>Already have an account ?</b> </Link>
       </form>

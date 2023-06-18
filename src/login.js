@@ -3,6 +3,7 @@ import './first.css';
 import {Link} from "react-router-dom";
 import axios from "axios";
 
+
 const Login=()=>{
 
   const [formData, setFormData] = useState({
@@ -43,12 +44,13 @@ const Login=()=>{
     return Object.keys(errors).length === 0;
   };
 
+  
   const handleSubmit = async(e) => {
     e.preventDefault();
 
     if (validateForm()) {
       
-       await axios.post(`http://localhost:5000/ecommerce/login`, {
+      await axios.post(`http://localhost:5000/ecommerce/login`, {
        
           password: formData.password,
           email: formData.email
@@ -56,10 +58,11 @@ const Login=()=>{
           console.log(res.data);
           
              if(res.data.data){  
+             
               alert(res.data.message);
             console.log(res);  
              }
-           
+        
              localStorage.setItem("token",res.data.data);
              window.location="/home";
              localStorage.setItem("UserName",res.data.user.username);
@@ -87,7 +90,7 @@ const Login=()=>{
    <div className='regis2'>
    
    <div className="registration-form2">
-      <h2>Login Form</h2>
+      <h2 style={{color:"white"}}>Login </h2>
 <form onSubmit={handleSubmit}>
 
 <div className="form-group">
@@ -119,7 +122,7 @@ const Login=()=>{
         </div>
 
 
-        <button type="submit">Login</button>
+        <button type="submit" >Login</button>
        <Link to="/signup" style={{margin:"5px"}}><b>New User then Register</b></Link>
 
       

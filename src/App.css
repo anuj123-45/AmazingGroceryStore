@@ -20,12 +20,13 @@
   }
 /*https://c4.wallpaperflare.com/wallpaper/371/108/963/white-line-blue-yellow-wallpaper-preview.jpg*/
   /*https://c0.wallpaperflare.com/preview/194/171/797/color-abstract-background-crop-thumbnail.jpg*/
+
   .shop-cart-main{
+    overflow: hidden;
     background-image: url('https://c0.wallpaperflare.com/preview/194/171/797/color-abstract-background-crop-thumbnail.jpg');
-	background-repeat: no-repeat;
-  background-attachment: fixed;  
-  background-size: cover;
-  overflow: hidden;
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
 
 }
 
@@ -40,7 +41,7 @@
   background-attachment: fixed;  
   background-size: cover;
   opacity: 0.8;
-  height:1000px;
+  height:160vh;
 }
 
 label{

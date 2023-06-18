@@ -84,6 +84,7 @@ const handleChange = (item, d) => {
     
       <Nav count={cart.length} handleShow={handleShow} searchCat={searchCat}/>
       {localStorage.setItem("count",cart.length)}
+      {localStorage.getItem("count")<=0 ? (<>{localStorage.setItem("TotalCost",0)}</>):(<></>)} 
   <br/>
 
   <br/>

@@ -80,18 +80,13 @@ const CartList = ({ cart, setCart, handleChange, count }) => {
       <br />
       <br />
       <div className="d-flex justify-content-end">
-        {
-          price > 0 ? <Link to="/checkout">
-
-            <button type="button" className="btn btn-success">
+       
+         
+            <Link to="/checkout"><button type="button" className="btn btn-success">
               Checkout
-            </button>
-          </Link> :
-            <button type="button" className="btn btn-success">
-              Checkout
-            </button>
-        }
-        {(localStorage.setItem("TotalCost", price))}
+            </button></Link>
+        
+        {localStorage.getItem("count")>0 ? (<>{localStorage.setItem("TotalCost",price)}</>):(<>{localStorage.setItem("TotalCost",0)}</>)}
         {localStorage.setItem("names", JSON.stringify(cart))}
       </div>
 

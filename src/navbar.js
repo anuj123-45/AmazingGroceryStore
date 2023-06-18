@@ -7,19 +7,13 @@ import './App.css';
 import {Link}  from 'react-router-dom';
 import React  from 'react';
 
-import {
-   
-  useNavigate
-} 
-
-from "react-router-dom";
 
 
 
 const Nav = (props) => {
 
  
-  const navigate = useNavigate();
+
 
   const handleLogout=()=>{
       localStorage.removeItem("token");
@@ -72,7 +66,7 @@ const Nav = (props) => {
 
 {
   props.count>0 ? <><a onClick={() => props.handleShow(true)} style={{ height: 13 ,width:3}}> <i className="fa fa-shopping-cart fa-2x" style={{marginRight:"5px"}} aria-hidden="true"></i>
-                    </a><sup  style={{ fontWeight: 'bolder',color:'white' }}><b>{props.count}</b></sup></>
+                    </a><sup  style={{ fontWeight: 'bolder',color:'white',marginTop:"5px" }}><b style={{fontSize:"15px"}}>{props.count}</b></sup></>
   :
   <a    style = {{height:13}}> <i className="fa fa-shopping-cart fa-2x" aria-hidden="true" ></i>
   </a>
@@ -90,9 +84,9 @@ const Nav = (props) => {
       
       
         <div >
-        <button type="button" className="btn btn-danger ">
-           <Link  className="text-decoration-none text-dark"  onClick={handleLogout}>
-             Logout
+        <button type="button" className="btn btn-success " >
+           <Link  className="text-decoration-none text-dark"  onClick={handleLogout} >
+          <b style={{color:"white"}}>Logout</b>
            </Link>
          </button>
         </div>
