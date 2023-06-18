@@ -7,7 +7,7 @@ import FormValidation from './checkout';
 import First from './first';
 import Login from './login'
 import RegistrationForm from './signup';
-import Notfound from './Notfound';
+
 
 
 
@@ -36,8 +36,7 @@ export default function App() {
 
 {user  && <Route  exact path='/checkout' element={<FormValidation/>}/>}
 
-<Route path="/home" element={<Notfound/>}/>
-{!user && <Route path="/checkout" element={<Notfound/>}/>}
+
 
 </Routes>
     </BrowserRouter>
