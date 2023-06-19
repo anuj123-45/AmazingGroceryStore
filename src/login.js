@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import './first.css';
-import {Link} from "react-router-dom";
+import {Link,useNavigate}  from "react-router-dom";
 import axios from "axios";
+
+
+
+
 
 
 const Login=()=>{
 
+  
+    const navigate=useNavigate();
   const [formData, setFormData] = useState({
     email: '',    
     password: '',
@@ -60,14 +66,19 @@ const Login=()=>{
              if(res.data.data){  
              
               alert(res.data.message);
-             window.location="/home";
+              localStorage.setItem("token",res.data.data);
+             
+               navigate("/anuj/ecom/home");
+              
+              
             console.log(res);  
              }
         
-             localStorage.setItem("token",res.data.data);
            
-          
              localStorage.setItem("UserName",res.data.user.username);
+          
+          
+             
 
         }).catch((err)=>{
           alert(err.response.data.message);
