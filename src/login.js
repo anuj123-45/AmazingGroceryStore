@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './first.css';
 import {Link,useNavigate}  from "react-router-dom";
 import axios from "axios";
+import { useEffect } from 'react';
 
 
 
@@ -64,12 +65,10 @@ const Login=()=>{
           console.log(res.data);
           
              if(res.data.data){  
-             
+           
               alert(res.data.message);
               localStorage.setItem("token",res.data.data);
-             
-               navigate("/anuj/ecom/home");
-              
+              window.location="/home";
               
             console.log(res);  
              }
@@ -79,7 +78,7 @@ const Login=()=>{
           
           
              
-
+            
         }).catch((err)=>{
           alert(err.response.data.message);
         })
