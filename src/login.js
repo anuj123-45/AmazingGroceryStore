@@ -60,11 +60,13 @@ const Login=()=>{
              if(res.data.data){  
              
               alert(res.data.message);
+             window.location="/home";
             console.log(res);  
              }
         
              localStorage.setItem("token",res.data.data);
-             window.location="/home";
+           
+          
              localStorage.setItem("UserName",res.data.user.username);
 
         }).catch((err)=>{
